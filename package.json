@@ -1,15 +1,29 @@
 {
-  "name": "biubiuUI-1",
-  "version": "1.0.0",
-  "description": "一个UI库",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "vue": "^3.2.11"
-  }
+    "name": "biubiuUI-1",
+    "version": "1.0.0",
+    "description": "一个UI库",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "webpack serve",
+        "build": "webpack"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "vue": "^3.2.11",
+        "vue-router": "^4.0.11",
+        "vuex": "^4.0.2"
+    },
+    "devDependencies": {
+        "@vue/compiler-sfc": "^3.2.11",
+        "css-loader": "^6.2.0",
+        "html-webpack-plugin": "^5.3.2",
+        "style-loader": "^3.2.1",
+        "vue-loader": "^16.5.0",
+        "webpack": "^5.52.1",
+        "webpack-cli": "^4.8.0",
+        "webpack-dev-server": "^4.2.0"
+    }
 }
