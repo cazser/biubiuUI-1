@@ -4,6 +4,12 @@
       我爱JS
      
     </biu-button>
+    <biu-button icon="settings" icon-position="left">
+      我啊java
+    </biu-button>
+    <biu-button >
+      ll
+    </biu-button>
   </div>
 </template>
 <script>

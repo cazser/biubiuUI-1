@@ -23,7 +23,8 @@ border: 1px solid var(--border-color);
 height: var(--button-height);
 font-size: var(--font-size);
 background: var(--button-bg);
-padding: 0 1em;
+padding: 0 .5em;
+vertical-align: middle;
 display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -54,9 +55,12 @@ display: inline-flex;
         vertical-align: -0.15em;
         fill: currentColor;
         overflow: hidden;
+	margin-left: .3em;
     }
 .biu-button.icon-left>.icon{
 	order:1;
+	margin-right: .3em;
+	margin-left:0;
 }
 .biu-button.icon-left>.content{
 	order: 2;
