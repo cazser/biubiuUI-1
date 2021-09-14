@@ -1,6 +1,7 @@
 <template>
 	<button class="biu-button"  :class="{[`icon-${iconPosition}`]:true}">
-	  <biu-icon v-if="icon" :name="icon"></biu-icon>
+	<biu-icon class="loading" name="loading"/>
+	  <biu-icon  class="icon" v-if="icon" :name="icon"></biu-icon>
 	  <div class="content">
 		<slot></slot>
 	  </div>
@@ -64,4 +65,12 @@ display: inline-flex;
 	order: 2;
 }
 
+@keyframes spin {
+	0%{transform: rotate(0deg);}
+	100%{transform: rotate(360deg);}
+}
+
+.loading{
+	animation: spin 1s infinite linear;
+}
 </style>
