@@ -35,6 +35,10 @@ module.exports = {
                 ]
             },
             {
+                test: /\.scss$/, // 正则表达式，表示.scss后缀的文件
+                use: ['style-loader', 'css-loader', 'sass-loader'] // 针对scss文件使用的loader，注意有先后顺序，数组项越靠后越先执行
+            },
+            {
                 test: /\.(png|jpe?g|gif)$/i,
                 type: 'asset/resource'
             }
