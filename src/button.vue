@@ -1,9 +1,15 @@
 <template>
-	<button class="biu-button">按钮</button>
+	<button class="biu-button">
+ 	  <svg class="icon">
+           <use :xlink:href="`#icon-${icon}`"/>
+          </svg>
+		<slot></slot>
+	</button>
 </template>
 <script>
 export default{
-name:'button'
+name:'button',
+props:['icon']
 
 };
 </script>

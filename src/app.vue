@@ -1,6 +1,9 @@
 <template>
   <div class='app'>
-    <biu-button></biu-button>
+    <biu-button icon='settings'>
+      我爱JS
+     
+    </biu-button>
   </div>
 </template>
 <script>
