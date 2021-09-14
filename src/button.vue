@@ -1,8 +1,6 @@
 <template>
 	<button class="biu-button"  :class="{[`icon-${iconPosition}`]:true}">
- 	  <svg v-if="icon" class="icon">
-           <use :xlink:href="`#icon-${icon}`"/>
-          </svg>
+	  <biu-icon v-if="icon" :name="icon"></biu-icon>
 	  <div class="content">
 		<slot></slot>
 	  </div>
@@ -12,7 +10,14 @@
 <script>
 export default{
 name:'button',
-props:['icon', 'iconPosition']
+props:{icon:{},
+ iconPosition:{
+	type: String,
+	default: "left",
+	validator(value){
+		return !(value!=="left" || value!=='right')
+	}
+}}
 
 };
 </script>
@@ -49,14 +54,7 @@ display: inline-flex;
 	outline: none;
 }
 
- .icon {
-        width: 1em;
-        height: 1em;
-        vertical-align: -0.15em;
-        fill: currentColor;
-        overflow: hidden;
-	margin-left: .3em;
-    }
+ 
 .biu-button.icon-left>.icon{
 	order:1;
 	margin-right: .3em;

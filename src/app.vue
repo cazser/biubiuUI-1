@@ -10,6 +10,7 @@
     <biu-button >
       ll
     </biu-button>
+    <biu-icon name="download"/>
   </div>
 </template>
 <script>
