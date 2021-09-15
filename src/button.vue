@@ -1,7 +1,8 @@
 <template>
-	<button class="biu-button"  :class="{[`icon-${iconPosition}`]:true}">
-	<biu-icon class="loading" name="loading"/>
-	  <biu-icon  class="icon" v-if="icon" :name="icon"></biu-icon>
+	<button class="biu-button"  :class="{[`icon-${iconPosition}`]:true}"
+	>
+	<biu-icon class="loading icon"  v-if="loading" name="loading"/>
+	  <biu-icon  class="icon" v-if="icon && !loading" :name="icon"></biu-icon>
 	  <div class="content">
 		<slot></slot>
 	  </div>
@@ -18,6 +19,10 @@ props:{icon:{},
 	validator(value){
 		return !(value!=="left" || value!=='right')
 	}
+},
+loading:{
+	type: Boolean,
+	default: false
 }}
 
 };
@@ -29,7 +34,7 @@ border: 1px solid var(--border-color);
 height: var(--button-height);
 font-size: var(--font-size);
 background: var(--button-bg);
-padding: 0 .5em;
+padding: 0 1em;
 vertical-align: middle;
 display: inline-flex;
     justify-content: center;
