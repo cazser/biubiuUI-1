@@ -1,7 +1,11 @@
+
 <template>
-	<div class='toast'>
+	<div class='toast' ref="toast">
+	<div class="message">
 	  <slot></slot>
-	  <div class="line"></div>
+	</div>
+	  <div class="line" ref="line"></div>
+	
 	  <span v-if="closeButton" class="close" @click="onClickClose">
 		  {{closeButton.text}}
 	  </span>
@@ -30,11 +34,15 @@ props:{
 	}
 },
 mounted(){
-	if(this.autoClose){
-		setTimeout(()=>{this.close()}, this.autoCloseDelay*1000)
-	}
+	this.execAutoClose();
+	this.updateStyles();
 },
 methods:{
+	execAutoClose(){
+		if(this.autoClose){
+		setTimeout(()=>{this.close()}, this.autoCloseDelay*1000)
+	}
+	},
 	close(){
 		this.$el.remove();
 		
@@ -44,6 +52,11 @@ methods:{
 		this.closeButton.callback();
 		}
 		this.close();
+	},
+	updateStyles(){
+		this.$nextTick(()=>{
+	this.$refs.line.style.height = `${this.$refs.toast.getBoundingClientRect().height}px`;
+	});
 	}
 }
 };
@@ -52,18 +65,25 @@ methods:{
 .toast{
 position: fixed;top:0;color: white;
 left: 50%;transform: translateX(-50%);font-size: 14px;
-line-height: 1.8;height: 40px;display: flex;
+line-height: 1.8;min-height: 40px;display: flex;
 align-items: center;background: rgba(0 ,0 ,0 ,0.75);
 box-shadow: 0 0 3px 0 rgba(0 ,0 ,0 ,0.5);
 padding: 0 16px;
+
 }
 .close{
+flex-shrink: 0;
  padding-left: 16px;
+ 
 }
+
+
 .line{
 	border: 1px solid #666;
 	height: 100%;
 	margin-left: 16px;
 }
-
+.message{
+	padding: 8px 0;
+}
 </style>

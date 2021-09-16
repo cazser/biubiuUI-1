@@ -18,12 +18,14 @@ created(){
 components: {"biu-button":Button},
 methods:{
   showToast(){
- this.$toast('我是message',
+ this.$toast(`我是message我是message我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是message
+
+ `,
  {
    closeButton:{
-     text:'关闭',
+     text:"尝尝的关闭",
      callback:()=>{
-       console.log("关闭了")
+
      }
    }
  });
