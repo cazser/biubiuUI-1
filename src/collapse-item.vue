@@ -1,9 +1,9 @@
 <template>
-	<div class='collapse-item'>
-	<div class="title">
+	<div class='collapse-item' >
+	<div class="title" @click="open=!open">
 	 {{title}}
 	</div>
-	 <div class="content">
+	 <div class="content" v-if="open">
 	 <slot></slot>
 	 </div>
 	</div>
@@ -16,6 +16,11 @@ props:{
 		type:String,
 		required: true
 	}
+},
+data(){
+	return{
+		open: false
+	}
 }
 
 };
@@ -27,7 +32,15 @@ props:{
 
 .title{
 border: 1px solid #ddd;
-border-radius: 4px;
+min-height: 32px;margin-top: -1px;
+margin-left: -1px;margin-right: -1px;
+display: flex; align-items: center;
+padding: 0 16px;
 }
+.collapse-item:first-child>.title{
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
 
 </style>

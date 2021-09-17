@@ -3,7 +3,7 @@
    <biu-collapse>
      <biu-collapse-item title="标题1">内容1</biu-collapse-item>
      <biu-collapse-item title="标题2">内容2</biu-collapse-item>
-     <biu-collapse-item title="标题3">内容3</biu-collapse-item>
+     <biu-collapse-item title="标题3"></biu-collapse-item>
    </biu-collapse> 
   </div>
 </template>
