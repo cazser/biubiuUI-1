@@ -6,27 +6,20 @@
 <script>
 export default{
 name:'tabs-item',
-props:{
- disabled:{
-	 type: Boolean,
-	 default: false
- },
- name:{
-	 type:String|Number,
-	 required:true
- }
-},
+props:['name'],
 inject: ['b'],
 data(){
 	return {active: false}
 },
 created(){
+	console.log(this.b);
 	this.b.$on("update:selected", (name)=>{
 		if(name===this.name){
 			this.active = true;
 		}else{
 		this.active = false;
 		}
+		
 	})
 },
 computed:{
@@ -67,7 +60,6 @@ flex-direction: row;
 	color: grey;
 	cursor: not-allowed;
 }
-
 
 
 </style>
