@@ -1,5 +1,5 @@
 import Toast from '@/toast.vue'
-import test from '@/test.vue'
+import test from '@/toast-wrapper.vue'
 import { defineComponent, createApp } from 'vue'
 
 function createToast(message, options) {

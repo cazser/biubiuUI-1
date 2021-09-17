@@ -10,6 +10,8 @@ import TabsPane from '@/tabs-p.vue'
 import TabsItem from '@/tabs-item.vue'
 import TabsHead from '@/tabs-head.vue'
 import TabsBody from '@/tabs-body.vue'
+import Collapse from '@/collapse.vue'
+import CollapseItem from '@/collapse-item.vue'
 const app = createApp(App)
 app.component('biu-icon', Icon)
 app.component('biu-button-group', ButtonGroup)
@@ -18,5 +20,7 @@ app.component('biu-tabs', Tabs)
 app.component('biu-tabs-head', TabsHead)
 app.component('biu-tabs-body', TabsBody)
 app.component('biu-tabs-item', TabsItem)
+app.component('biu-collapse', Collapse)
+app.component('biu-collapse-item', CollapseItem)
 app.use(plugin)
 app.mount('#app')
