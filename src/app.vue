@@ -2,12 +2,14 @@
   <div class='app'>
     <biu-tabs selected="11">
       <biu-tabs-head>
-        <biu-tabs-item name="11">item1</biu-tabs-item>
-         <biu-tabs-item name='12'>item2</biu-tabs-item>
+        <biu-tabs-item name="11" type='item'>item1</biu-tabs-item>
+         <biu-tabs-item name='12' type='item'>item2</biu-tabs-item>
+         <biu-tabs-item name="item3" type="item">item3</biu-tabs-item>
       </biu-tabs-head>
       <biu-tabs-body>
-        <biu-tabs-pane name='11'>pane1</biu-tabs-pane>
-        <biu-tabs-pane name='12'>pane2</biu-tabs-pane>
+        <biu-tabs-item name='11' type='pane'>pane1</biu-tabs-item>
+        <biu-tabs-item name='12' type='pane'>pane2</biu-tabs-item>
+        <biu-tabs-item name="items" type="pane"><button>12</button></biu-tabs-item>
       </biu-tabs-body>
     </biu-tabs>
   </div>

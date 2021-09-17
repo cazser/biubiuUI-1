@@ -1,18 +1,19 @@
 <template>
-	<div class='tabs-item' @click="onClick" :class="classes">
+	<div class='tabs-item' @click="onClick" :class="classes"
+	v-if="show">
 	<slot></slot>
 	</div>
 </template>
 <script>
 export default{
 name:'tabs-item',
-props:['name'],
+props:['name', 'type'],
 inject: ['b'],
 data(){
 	return {active: false}
 },
 created(){
-	console.log(this.b);
+	
 	this.b.$on("update:selected", (name)=>{
 		if(name===this.name){
 			this.active = true;
@@ -21,11 +22,24 @@ created(){
 		}
 		
 	})
+	console.log(this.type)
+
 },
+
 computed:{
 	classes(){
-		return {active:this.active,
-		disabled: this.disabled}
+		if(this.active){
+			return this.type+"-" + "active"
+		}else{
+			return {}
+		}
+	},
+	show(){
+		if(this.type==='item' || this.active){
+			return true;
+		}else {
+		   return false;
+		}
 	}
 },
 methods:{
@@ -35,6 +49,7 @@ methods:{
 		}
 		this.b.$emit("update:selected", this.name)
 	}
+
 }
 
 };
@@ -51,7 +66,7 @@ display: flex;
 align-items: center;
 flex-direction: row;
 }
-.active{
+.item-active{
 	color: blue;
 	border-bottom: 2px solid blue;
 	margin-bottom: -2px;
@@ -61,5 +76,8 @@ flex-direction: row;
 	cursor: not-allowed;
 }
 
-
+.pane{
+	color: inherit;
+	border: 1px solid black;
+}
 </style>
