@@ -22,7 +22,7 @@ methods:{
 你的智商为${Math.random()}
  `,
  {
-   position:'bottom',
+   position:'middle',
    closeButton:{
      text:"尝尝的关闭",
      callback:()=>{

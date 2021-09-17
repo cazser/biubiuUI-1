@@ -26,7 +26,7 @@ props:{
 	},
 	autoCloseDelay:{
 		type: Number,
-		default: 50
+		default: 5
 	},
 	closeButton:{
 		type:Object,
@@ -81,8 +81,7 @@ left: 50%;font-size: 14px;
 line-height: 1.8;min-height: 40px;display: flex;
 align-items: center;background: rgba(0 ,0 ,0 ,0.75);
 box-shadow: 0 0 3px 0 rgba(0 ,0 ,0 ,0.5);
-padding: 0 16px; animation: fade-in 1s;
-
+padding: 0 16px; 
 }
 .close{
 flex-shrink: 0;
@@ -105,22 +104,40 @@ flex-shrink: 0;
 	top: 0;
 	transform: translateX(-50%);
 	left: 50%;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	animation: slide-down 1s;
 
 }
 
 .position-bottom{
 	bottom: 0;
 	transform: translateX(-50%);
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	animation: slide-up 1s;
+
 }
 
 .position-middle{
 	top: 50%;
 	transform: translate(-50%, -50%);
+	border-radius: 4px;
+animation: fade-in 1s;
 
 }
 
+@keyframes slide-up{
+	0%{opacity: 0; transform: translate(-50%,100%);}
+	100%{opacity: 1; transform: translateY(-50%, 0%);}
+}
+
 @keyframes fade-in{
-	0%{opacity: 0; transform: translateY(100%);}
-	100%{opacity: 1; transform: translateY(0%);}
+	0%{opacity: 0; }
+	100%{opacity: 1;}
+}
+@keyframes slide-down{
+	0%{opacity: 0; transform: translate(-50%,-100%);}
+	100%{opacity: 1; transform: translateY(-50%, 0%);}
 }
 </style>
