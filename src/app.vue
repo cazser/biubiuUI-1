@@ -1,6 +1,14 @@
 <template>
   <div class='app'>
-  <biu-button @click="showToast">安保部</biu-button> 
+    <biu-tabs selected="item1">
+      <biu-tabs-head>
+        <biu-tabs-item name="11">item1</biu-tabs-item>
+         <biu-tabs-item>item2</biu-tabs-item>
+      </biu-tabs-head>
+      <biu-tabs-body>
+        <biu-tabs-pane>pane</biu-tabs-pane>
+      </biu-tabs-body>
+    </biu-tabs>
   </div>
 </template>
 <script>
