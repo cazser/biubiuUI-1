@@ -1,6 +1,6 @@
 
 <template>
-	<div class='toast' ref="toast">
+	<div class='toast' ref="toast" :class="toastClasses">
 	<div class="message">
 	  <slot></slot>
 	</div>
@@ -14,6 +14,11 @@
 <script>
 export default{
 name:'toast',
+computed:{
+	toastClasses(){
+		return {[`position-${this.position}`] :  true}
+	}
+},
 props:{
 	autoClose:{
 		type:Boolean,
@@ -31,6 +36,13 @@ props:{
 			callback: undefined
 			}
 		}
+	},
+	position:{
+		type: String,
+		default: 'top',
+		validator(value){
+		return ['top','bottom', 'middle'].indexOf(value)>=0;
+		}
 	}
 },
 mounted(){
@@ -45,6 +57,7 @@ methods:{
 	},
 	close(){
 		this.$el.remove();
+		this.$unmounted();
 		
 	},
 	onClickClose(){
@@ -63,8 +76,8 @@ methods:{
 </script>
 <style scoped>
 .toast{
-position: fixed;top:0;color: white;
-left: 50%;transform: translateX(-50%);font-size: 14px;
+position: fixed;color: white;
+left: 50%;font-size: 14px;
 line-height: 1.8;min-height: 40px;display: flex;
 align-items: center;background: rgba(0 ,0 ,0 ,0.75);
 box-shadow: 0 0 3px 0 rgba(0 ,0 ,0 ,0.5);
@@ -86,4 +99,25 @@ flex-shrink: 0;
 .message{
 	padding: 8px 0;
 }
+
+
+.position-top{
+	top: 0;
+	transform: translateX(-50%);
+	left: 50%;
+
+}
+
+.position-bottom{
+	bottom: 0;
+	transform: translateX(-50%);
+}
+
+.position-middle{
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+}
+
+
 </style>

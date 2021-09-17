@@ -22,6 +22,7 @@ methods:{
 
  `,
  {
+   position:'bottom',
    closeButton:{
      text:"尝尝的关闭",
      callback:()=>{
