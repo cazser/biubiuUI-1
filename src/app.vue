@@ -18,8 +18,8 @@ created(){
 components: {"biu-button":Button},
 methods:{
   showToast(){
- this.$toast(`我是message我是message我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是messagee我是message我是message
-
+ this.$toast(`
+你的智商为${Math.random()}
  `,
  {
    position:'bottom',
