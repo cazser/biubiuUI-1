@@ -1,10 +1,9 @@
 <template>
   <div class='app'>
-   <biu-collapse>
-     <biu-collapse-item title="标题1">内容1</biu-collapse-item>
-     <biu-collapse-item title="标题2">内容2</biu-collapse-item>
-     <biu-collapse-item title="标题3"></biu-collapse-item>
-   </biu-collapse> 
+  <biu-upload accept="image/*"
+              action="path"   name="name"
+              :filelist.sync="fileList"></biu-upload> 
+            <biu-button>上传</biu-button>
   </div>
 </template>
 <script>
@@ -13,7 +12,8 @@ export default{
 name:'app',
 data(){
   return{
-    flag: true
+    flag: true,
+    fileList: []
   }
 },
 created(){
