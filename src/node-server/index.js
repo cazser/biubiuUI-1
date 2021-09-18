@@ -7,7 +7,7 @@ app.get('/', (request, response) => {
 })
 app.post('/upload', upload.single('xxx'), (request, response) => {
     console.log(request.file)
-    response.send('here')
+    response.send(request.file.filename)
 })
 
 app.listen(3000)
