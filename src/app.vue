@@ -1,9 +1,19 @@
 <template>
   <div class='app'>
-  <biu-upload accept="image/*"
-              action="path"   name="name"
-              :filelist.sync="fileList"></biu-upload> 
-            <biu-button>上传</biu-button>
+  <biu-uploader accept="image/*"
+              action="path"   name="name">
+      
+
+  <template v-slot:default>
+    <p>Here's some contact info</p>
+  </template>  
+  <template v-slot:header>
+    <div>nn</div>
+  </template> 
+  <template v-slot:footer>
+    <span>footer</span>
+  </template>    
+  </biu-uploader> 
   </div>
 </template>
 <script>
