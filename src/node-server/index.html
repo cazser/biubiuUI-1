@@ -7,10 +7,27 @@
 </head>
 
 <body>
-    <form action="http://127.0.0.1:3000/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="xxx" />
+    <form id=f action="http://127.0.0.1:3000/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" />
         <input type="submit" value="提交" />
     </form>
+
+    <img id=img />
 </body>
+<script>
+    f.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData();
+        var fileInput = document.querySelector('input[name=file]');
+        formData.append('file', fileInput.files[0]);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', f.action);
+        xhr.onload = function() {
+            img.src =
+                `http://127.0.0.1:3000/preview/${xhr.response}`;
+        };
+        xhr.send(formData);
+    });
+</script>
 
 </html>
