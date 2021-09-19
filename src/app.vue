@@ -3,8 +3,7 @@
   <biu-uploader accept="image/*"
               action="http://127.0.0.1:3000/upload"   name="file"
               :parseResponse="parseResponse"
-              :file-list="fileList"
-               @update:file-list="fileList = $event">
+              v-model:file-list="fileList">
       
 
   <template v-slot:default>
