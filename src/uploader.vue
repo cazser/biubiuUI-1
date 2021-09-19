@@ -40,26 +40,32 @@ props:{
 },
 methods:{
   onClickUpload(){
-    let input = document.createElement('input');
-    input.type="file";
-    this.$refs.temp.appendChild(input);
+    let input = this.createInput();
   
     input.addEventListener("change", (e)=>{
       let file = input.files[0];
-      setTimeout(()=>{console.log(file)}, 1000)
-        var formData = new FormData();
-        
-        formData.append(this.name, file);
-        var xhr = new XMLHttpRequest();
-        xhr.open(this.method, this.action);
-        xhr.onload = ()=> {
-        //  console.log(typeof xhr.response);
-        let url = this.parseResponse(xhr.response)
-        this.url = url;
-        };
-        xhr.send(formData);
+    
+      let formData = new FormData();
+      formData.append(this.name, file);
+        this.uploadFile(formData);
     })
     input.click();
+},
+createInput(){
+  let input = document.createElement('input');
+    input.type="file";
+    this.$refs.temp.appendChild(input);
+    return input;
+},
+uploadFile(formData){
+  var xhr = new XMLHttpRequest();
+  xhr.open(this.method, this.action);
+  xhr.onload = ()=> {
+  //  console.log(typeof xhr.response);
+  let url = this.parseResponse(xhr.response)
+  this.url = url;
+  };
+  xhr.send(formData);
 }
 }
 
