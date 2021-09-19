@@ -5,7 +5,6 @@
     <slot></slot>
   </div>
   <div ref="temp" style="width:0;height:0;overflow:hidden;"></div>
-  <!--<img :src="url" ref="preview"/>-->
   <ol v-if="fileList">
     <li v-for="file in fileList" key="file.name">
       {{file.name}}
@@ -53,13 +52,13 @@ methods:{
   
     input.addEventListener("change", (e)=>{
       let file = input.files[0];
-//        let {name, type, size} = file;
-
+      let {name, type, size} = file;
+      console.log(name);  
       let formData = new FormData();
       formData.append(this.name, file);
         this.uploadFile(formData);
     //this.fileList.push({name, type, size})
-    //this.$emit('update:fileList', [...this.fileList, {name, type, size}])
+    this.$emit('update:fileList', [...this.fileList, {name, type, size}])
     })
 
     input.click();
