@@ -9,6 +9,7 @@
   <ol v-if="fileList">
     <li v-for="file in fileList" :key="file.name+ Math.random()">
       <img :src="file.url" width="100" height="100"/> {{file.name}}
+      <button @click="onRemoveFile(file)">x</button>
     </li>
   </ol>
   <footer>
@@ -59,6 +60,15 @@ methods:{
 
     input.click();
     
+},
+onRemoveFile(file){
+  let answer = window.confirm('你确定要删除吗？')
+  if(answer){
+    let copy = [...this.fileList]
+    let index = copy.indexOf(file);
+    copy.splice(index,1);
+    this.$emit('update:fileList', copy);
+  }
 },
 createInput(){
   let input = document.createElement('input');
