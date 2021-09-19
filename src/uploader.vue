@@ -5,7 +5,12 @@
     <slot></slot>
   </div>
   <div ref="temp" style="width:0;height:0;overflow:hidden;"></div>
-  <img :src="url" ref="preview"/>
+  <!--<img :src="url" ref="preview"/>-->
+  <ol v-if="fileList">
+    <li v-for="file in fileList" key="file.name">
+      {{file.name}}
+    </li>
+  </ol>
   <footer>
     <slot name="tips"></slot>
   </footer>
@@ -36,6 +41,10 @@ props:{
   parseResponse:{
     type: Function,
     required: true
+  },
+  fileList:{
+    type: Array,
+    default:()=>[]
   }
 },
 methods:{
@@ -44,12 +53,17 @@ methods:{
   
     input.addEventListener("change", (e)=>{
       let file = input.files[0];
-    
+//        let {name, type, size} = file;
+
       let formData = new FormData();
       formData.append(this.name, file);
         this.uploadFile(formData);
+    //this.fileList.push({name, type, size})
+    //this.$emit('update:fileList', [...this.fileList, {name, type, size}])
     })
+
     input.click();
+    
 },
 createInput(){
   let input = document.createElement('input');

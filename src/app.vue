@@ -2,7 +2,8 @@
   <div class='app'>
   <biu-uploader accept="image/*"
               action="http://127.0.0.1:3000/upload"   name="file"
-              :parseResponse="parseResponse">
+              :parseResponse="parseResponse"
+              :file-list.sync="fileList">
       
 
   <template v-slot:default>
