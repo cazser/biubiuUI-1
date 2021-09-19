@@ -11,6 +11,7 @@ app.post('/upload', cors(), upload.single('file'), (request, response) => {
 
     response.set({ 'Access-Control-Allow-Origin': '*' })
     let filename = request.file.filename;
+    console.log(request.file)
     let object = { id: filename }
     response.send(JSON.stringify(object))
 
