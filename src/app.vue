@@ -1,17 +1,15 @@
 <template>
   <div class='app'>
   <biu-uploader accept="image/*"
-              action="path"   name="name">
+              action="http://127.0.0.1:3000/upload"   name="file">
       
 
   <template v-slot:default>
-    <p>Here's some contact info</p>
+    <biu-button>上传</biu-button>
   </template>  
-  <template v-slot:header>
-    <div>nn</div>
-  </template> 
-  <template v-slot:footer>
-    <span>footer</span>
+ 
+  <template v-slot:tips>
+    <div>只能上传300kb以下的图片</div>
   </template>    
   </biu-uploader> 
   </div>
