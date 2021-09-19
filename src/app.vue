@@ -1,7 +1,8 @@
 <template>
   <div class='app'>
   <biu-uploader accept="image/*"
-              action="http://127.0.0.1:3000/upload"   name="file">
+              action="http://127.0.0.1:3000/upload"   name="file"
+              :parseResponse="parseResponse">
       
 
   <template v-slot:default>
@@ -42,7 +43,13 @@ methods:{
      }
    }
  });
+  },
+  parseResponse(response){
+    let object = JSON.parse(response)
+    let url = `http://127.0.0.1:3000/preview/${object.id}`
+    return url;
   }
+
 }
 };
 </script>

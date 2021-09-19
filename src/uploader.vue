@@ -5,6 +5,7 @@
     <slot></slot>
   </div>
   <div ref="temp" style="width:0;height:0;overflow:hidden;"></div>
+  <img :src="url" ref="preview"/>
   <footer>
     <slot name="tips"></slot>
   </footer>
@@ -14,6 +15,11 @@
 <script>
 export default{
 name:'uploader',
+data(){
+  return{
+    url: "about:blank"
+  }
+},
 props:{
   name:{
     type: String,
@@ -26,6 +32,10 @@ props:{
   method:{
     type: String,
     default: "POST"
+  },
+  parseResponse:{
+    type: Function,
+    required: true
   }
 },
 methods:{
@@ -42,8 +52,10 @@ methods:{
         formData.append(this.name, file);
         var xhr = new XMLHttpRequest();
         xhr.open(this.method, this.action);
-        xhr.onload = function() {
-          console.log(xhr.response);
+        xhr.onload = ()=> {
+        //  console.log(typeof xhr.response);
+        let url = this.parseResponse(xhr.response)
+        this.url = url;
         };
         xhr.send(formData);
     })

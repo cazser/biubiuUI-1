@@ -8,12 +8,12 @@ app.get('/', cors(), (request, response) => {
     //response.send('hello  nodejs ')
 })
 app.post('/upload', cors(), upload.single('file'), (request, response) => {
-    try {
-        response.set({ 'Access-Control-Allow-Origin': '*' })
-        response.send(request.file.filename)
-    } catch (e) {
-        console.log(e)
-    }
+
+    response.set({ 'Access-Control-Allow-Origin': '*' })
+    let filename = request.file.filename;
+    let object = { id: filename }
+    response.send(JSON.stringify(object))
+
 })
 
 app.get('/preview/:key', cors(), (request, response) => {
@@ -28,4 +28,6 @@ app.get('/preview/:key', cors(), (request, response) => {
     })
 })
 var port = process.env.PORT || 3000
-app.listen(3000)
+app.listen(port, () => {
+    console.log("kk")
+})
