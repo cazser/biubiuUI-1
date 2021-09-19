@@ -62,10 +62,14 @@ uploadFile(formData){
   xhr.open(this.method, this.action);
   xhr.onload = ()=> {
   //  console.log(typeof xhr.response);
-  let url = this.parseResponse(xhr.response)
-  this.url = url;
+  this.onSuccess(xhr.response)
+ 
   };
   xhr.send(formData);
+},
+onSuccess(response){
+  let url = this.parseResponse(response)
+  this.url = url;
 }
 }
 
