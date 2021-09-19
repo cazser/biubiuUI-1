@@ -5,9 +5,10 @@
     <slot></slot>
   </div>
   <div ref="temp" style="width:0;height:0;overflow:hidden;"></div>
+  
   <ol v-if="fileList">
-    <li v-for="file in fileList" key="file.name">
-      {{file.name}}
+    <li v-for="file in fileList" :key="file.name+ Math.random()">
+      <img :src="file.url" width="100" height="100"/> {{file.name}}
     </li>
   </ol>
   <footer>
@@ -51,15 +52,10 @@ methods:{
     let input = this.createInput();
   
     input.addEventListener("change", (e)=>{
-      let file = input.files[0];
-      let {name, type, size} = file;
-      console.log(name);  
-      let formData = new FormData();
-      formData.append(this.name, file);
-        this.uploadFile(formData);
-    //this.fileList.push({name, type, size})
-    this.$emit('update:fileList', [...this.fileList, {name, type, size}])
-    })
+      let file = input.files[0];   
+        this.uploadFile(file);
+        input.remove();
+     })
 
     input.click();
     
@@ -70,22 +66,28 @@ createInput(){
     this.$refs.temp.appendChild(input);
     return input;
 },
-uploadFile(formData){
-  var xhr = new XMLHttpRequest();
+uploadFile(file){
+   let formData = new FormData();
+    formData.append(this.name, file);
+    let {name, type, size} = file;
+    this.doUploadFile(formData, (response)=>{
+      let url = this.parseResponse(response)
+      this.url = url;
+      this.$emit('update:fileList', [...this.fileList, {name, type, size, url}])
+    });
+ 
+},
+doUploadFile(formData, success){
+  let xhr = new XMLHttpRequest();
   xhr.open(this.method, this.action);
   xhr.onload = ()=> {
   //  console.log(typeof xhr.response);
-  this.onSuccess(xhr.response)
+  success(xhr.response)
  
   };
   xhr.send(formData);
-},
-onSuccess(response){
-  let url = this.parseResponse(response)
-  this.url = url;
 }
 }
-
 };
 </script>
 <style scoped>
