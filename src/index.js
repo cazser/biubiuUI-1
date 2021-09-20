@@ -13,6 +13,7 @@ import TabsBody from '@/tabs-body.vue'
 import Collapse from '@/collapse.vue'
 import CollapseItem from '@/collapse-item.vue'
 import Uploader from '@/Uploader.vue'
+import Sticky from '@/sticky.vue'
 const app = createApp(App)
 app.component('biu-icon', Icon)
 app.component('biu-button-group', ButtonGroup)
@@ -24,5 +25,6 @@ app.component('biu-tabs-item', TabsItem)
 app.component('biu-collapse', Collapse)
 app.component('biu-collapse-item', CollapseItem)
 app.component('biu-uploader', Uploader)
+app.component('biu-sticky', Sticky)
 app.use(plugin)
 app.mount('#app')

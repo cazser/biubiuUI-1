@@ -1,19 +1,146 @@
 <template>
   <div class='app'>
-  <biu-uploader accept="image/*"
-              action="http://127.0.0.1:3000/upload"   name="file"
-              :parseResponse="parseResponse"
-              v-model:file-list="fileList">
-      
+    <biu-sticky distance="100">
+      <div style="border: 1px solid red;"> 我是黏性内容</div>
+    </biu-sticky>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+     <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+     <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
 
-  <template v-slot:default>
-    <biu-button>上传</biu-button>
-  </template>  
- 
-  <template v-slot:tips>
-    <div>只能上传300kb以下的图片</div>
-  </template>    
-  </biu-uploader> 
+   <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+
+  <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+     <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+
+   <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+    <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+ <p>段落1</p>
+
+
+
+
+
+
+
   </div>
 </template>
 <script>
@@ -31,26 +158,7 @@ created(){
 },
 components: {"biu-button":Button},
 methods:{
-  showToast(){
- this.$toast(`
-你的智商为${Math.random()}
- `,
- {
-   position:'middle',
-   closeButton:{
-     text:"尝尝的关闭",
-     callback:()=>{
-
-     }
-   }
- });
-  },
-  parseResponse(response){
-    let object = JSON.parse(response)
-    let url = `http://127.0.0.1:3000/preview/${object.id}`
-    return url;
-  }
-
+  
 }
 };
 </script>
