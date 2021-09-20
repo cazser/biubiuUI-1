@@ -4,17 +4,18 @@
   <div @click="onClickUpload">
     <slot></slot>
   </div>
-  <div ref="temp" style="width:0;height:0;overflow:hidden;"></div>
-  
-  <ol v-if="fileList">
-    <li v-for="file in fileList" :key="file.name+ Math.random()">
-      <img :src="file.url" width="100" height="100"/> {{file.name}}
-      <button @click="onRemoveFile(file)">x</button>
-    </li>
-  </ol>
   <footer>
     <slot name="tips"></slot>
   </footer>
+  <div ref="temp" style="width:0;height:0;overflow:hidden;"></div>
+  
+  <ol v-if="fileList" class="fileList">
+    <li v-for="file in fileList" :key="file.name+ Math.random()">
+      <img :src="file.url" width="30" height="30"/> {{file.name}}
+      <button @click="onRemoveFile(file)">x</button>
+    </li>
+  </ol>
+  
 </div>
 
 </template>
@@ -105,5 +106,11 @@ doUploadFile(formData, success){
 
 }
 
-
+.fileList>li{
+  display: flex;
+  width: 100px;
+  align-items: center;
+  overflow: hidden;
+  wrap: no-wrap;
+}
 </style>
