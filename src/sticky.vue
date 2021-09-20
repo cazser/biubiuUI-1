@@ -1,5 +1,5 @@
 <template>
-	<div class='sticky' ref="wrapper">
+	<div ref="wrapper" :class="classes">
 	 <slot></slot>
 	</div>
 </template>
@@ -7,16 +7,32 @@
 export default{
 name:'sticky',
 mounted(){
-	let {top} = this.$refs.wrapper.getBoundingRect()
-	console.log(top);
-	let t = top+window.scrollY;
+	let top = this.top();
+	window.addEventListener('scroll', ()=>{
+		if(window.scrollY>top){
+			this.sticky= true;
+		}else{
+			this.sticky= false;
+		}
+	})
+},
+data(){
+	return{
+		sticky: false
+	}
 },
 created(){
-	window.addEventListener('scroll', ()=>{console.log('hi')})
+	
+	
+},
+computed:{
+classes(){
+	return {sticky: this.sticky}
+}
 },
 methods:{
 	top(){
-	let {top} = this.$refs.wrapper.getBoundingRect()
+	let {top} = this.$refs.wrapper.getBoundingClientRect()
 	
 	return top+window.scrollY;
 	}
@@ -26,7 +42,10 @@ methods:{
 </script>
 <style scoped>
 .sticky{
-
+position: fixed;
+left:0;
+top:0;
+width: 100%;
 }
 
 
