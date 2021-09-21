@@ -1,6 +1,8 @@
 <template>
-	<div ref="wrapper" :class="classes">
+	<div ref="wrapper">
+	<div :class="classes">
 	 <slot></slot>
+	</div>
 	</div>
 </template>
 <script>
